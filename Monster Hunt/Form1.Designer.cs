@@ -40,6 +40,8 @@
             this.upg_sword = new System.Windows.Forms.Button();
             this.monster = new System.Windows.Forms.Button();
             this.hp_label = new System.Windows.Forms.Label();
+            this.level = new System.Windows.Forms.Label();
+            this.sw_am = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,7 +129,7 @@
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(296, 296);
+            this.button1.Location = new System.Drawing.Point(296, 288);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 32);
             this.button1.TabIndex = 7;
@@ -150,6 +152,7 @@
             this.upg_sword.Size = new System.Drawing.Size(56, 104);
             this.upg_sword.TabIndex = 4;
             this.upg_sword.UseVisualStyleBackColor = false;
+            this.upg_sword.Click += new System.EventHandler(this.upg_sword_Click);
             // 
             // monster
             // 
@@ -174,17 +177,39 @@
             this.hp_label.BackColor = System.Drawing.Color.Transparent;
             this.hp_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.hp_label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.hp_label.Location = new System.Drawing.Point(512, 288);
+            this.hp_label.Location = new System.Drawing.Point(424, 288);
             this.hp_label.Name = "hp_label";
             this.hp_label.Size = new System.Drawing.Size(47, 15);
             this.hp_label.TabIndex = 8;
             this.hp_label.Text = "20 / 20 ";
+            // 
+            // level
+            // 
+            this.level.AutoSize = true;
+            this.level.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.level.Location = new System.Drawing.Point(288, 0);
+            this.level.Name = "level";
+            this.level.Size = new System.Drawing.Size(63, 20);
+            this.level.TabIndex = 9;
+            this.level.Text = "Level: 1";
+            this.level.TextChanged += new System.EventHandler(this.level_TextChanged);
+            // 
+            // sw_am
+            // 
+            this.sw_am.AutoSize = true;
+            this.sw_am.Location = new System.Drawing.Point(64, 88);
+            this.sw_am.Name = "sw_am";
+            this.sw_am.Size = new System.Drawing.Size(13, 13);
+            this.sw_am.TabIndex = 10;
+            this.sw_am.Text = "0";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1453, 533);
+            this.Controls.Add(this.sw_am);
+            this.Controls.Add(this.level);
             this.Controls.Add(this.hp_label);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
@@ -216,6 +241,8 @@
         private System.Windows.Forms.Button catch_id1;
         private System.Windows.Forms.Button catch_id2;
         private System.Windows.Forms.Label hp_label;
+        private System.Windows.Forms.Label level;
+        private System.Windows.Forms.Label sw_am;
     }
 }
 

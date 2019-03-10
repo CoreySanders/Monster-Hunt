@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,14 +18,27 @@ namespace Monster_Hunt
             InitializeComponent();
             hp.Maximum = 20;
             hp.Value = 20;
+            MessageBox.Show("Welcome to Monster Hunt!" + "\n" + "\n" + "Your income will increase every 20 levels", "Welcome!");
         }
 
-        double x; //Balance
-        double y = 1; //Income
-        double dmgval = 1;
-        double hpbar = 20;
-        double hpbarmax = 20;
+        //Basic stuff
+        int lvl = 1; //Level
+        int x; //Balance
+        int y = 1; //Income
 
+        //HP
+        int hpbar = 20; //How much HP is left
+        int hpbarmax = 20; //The current max HP the level has set
+        double hpbarmultiply = 1.2; //How much the hpbarmax is getting multiplied with
+        int dmgval = 1; //Your damage
+
+        //Upgrades
+        int sword_amount;
+        int sword_cost = 20;
+        int sword_income = 1;
+        int sword_dmg = 1;
+
+        int catch_cost = 100;
         //Monsters:
         bool id1 = false; //Pikachu
         bool id2 = false; //Angry Bird
@@ -35,15 +49,23 @@ namespace Monster_Hunt
             gold.Text = "Gold: " + x;
 
             hpbar = hpbar - dmgval;
-            if (hpbar == 0)
+            if (hpbar <= 0)
             {
                 monster.BackgroundImage = Properties.Resources.materialangry;
-                hpbarmax = hpbarmax * 1.3;
+                hpbarmax = (int)(hpbarmax * hpbarmultiply);
                 hpbar = hpbarmax;
+                lvl = lvl + 1;
+                level.Text = "Level: " + lvl;
                 
             }
-            hp.Maximum = (int)hpbarmax;
-            hp.Value = (int)hpbar;
+            if (lvl >= 20)
+            {
+                hpbarmultiply = 1.1;
+
+            }
+
+            hp.Maximum = hpbarmax;
+            hp.Value = hpbar;
             hp_label.Text = hpbar + " / " + hpbarmax + " ";
 
 
@@ -54,60 +76,102 @@ namespace Monster_Hunt
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             if (id1 == true && id2 == true)
             {
                 MessageBox.Show("You have already obtained every monster!", "Sorry");
             }
             else
             {
-                Random slumpGenerator = new Random();
-                int catchchance = slumpGenerator.Next(1, 100);
-
-                if (catchchance >= 70)
+                if (x >= catch_cost)
                 {
+                    x = x - catch_cost; 
+                    gold.Text = "Gold: " + x;
 
-                    while (!id1 || !id2)
+                    Random slumpGenerator = new Random();
+                    int catchchance = slumpGenerator.Next(1, 100);
+
+                    if (catchchance >= 70)
                     {
-                        int catchid = slumpGenerator.Next(1, 3);
 
-                        if (catchid == 1)
+                        while (!id1 || !id2)
                         {
+                            int catchid = slumpGenerator.Next(1, 3);
+
+                            if (catchid == 1)
+                            {
                         
-                            if (!id1)
-                            {
-                                id1 = true;
-                                catch_id1.Visible = true;
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            if (catchid == 2)
-                            {
-
-                                if (!id2)
+                                if (!id1)
                                 {
-                                    id2 = true;
-                                    catch_id2.Visible = true;
+                                    id1 = true;
+                                    catch_id1.Visible = true;
                                     break;
                                 }
+                            }
+                            else
+                            {
+                                if (catchid == 2)
+                                {
 
+                                    if (!id2)
+                                    {
+                                        id2 = true;
+                                        catch_id2.Visible = true;
+                                        break;
+                                    }
+
+
+                                }
 
                             }
+                 
 
                         }
-                 
+
+                        MessageBox.Show("Congratulations!", "Achievement");
 
                     }
 
-                    MessageBox.Show("Congratulations!", "Achievement");
-
+                    else
+                    {
+                        MessageBox.Show("Better luck next time!", "You failed");
+                    }
                 }
-
                 else
                 {
-                    MessageBox.Show("Better luck next time!", "You failed");
+                    MessageBox.Show("You need " + catch_cost + " gold to purchase this item!", "Purchase failed");
                 }
+            }   
+        }
+
+        private void upg_sword_Click(object sender, EventArgs e)
+        {
+            if (x >= sword_cost)
+            {
+                x = x - sword_cost;
+                sword_amount = sword_amount + 1;
+                dmgval = dmgval +  sword_dmg;
+
+
+
+                dmg.Text = "Dmg: " + dmgval;
+                gold.Text = "Gold: " + x; 
+                sword_cost = (int)(sword_cost * 1.3);
+                sw_cost.Text = sword_cost + " Gold";
+                sw_am.Text = sword_amount.ToString();
+            }
+            else
+            {
+                MessageBox.Show("You need " + sword_cost + " gold to purchase this item!", "Purchase failed");
+            }
+        }
+
+        private void level_TextChanged(object sender, EventArgs e)
+        {
+            if (lvl == 20)
+            {
+                y = y + 1;
+                MessageBox.Show("Congratulations for reaching level 20!" + "\n" + "\n" + "Your gold income has been increased by +1", "We hope you enjoy your stay");
 
             }
         }
