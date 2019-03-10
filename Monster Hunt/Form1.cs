@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -221,6 +222,14 @@ namespace Monster_Hunt
 
         private void load_Click(object sender, EventArgs e)
         {
+            TextReader tr = new StreamReader("settings.txt");
+            string pattern = @"(\d+[,\.]?)";
+            Regex rgx = new Regex(pattern);
+            tr.ReadLine();
+            tr.ReadLine();
+            string input = tr.ReadLine();
+           // string aa2 = Regex.Split(input, rgx);
+           // gold.Text = aa2;
 
 
         }
