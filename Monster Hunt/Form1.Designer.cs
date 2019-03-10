@@ -34,11 +34,12 @@
             this.dmg = new System.Windows.Forms.Label();
             this.sw_cost = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.catch_id2 = new System.Windows.Forms.Button();
             this.catch_id1 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.upg_sword = new System.Windows.Forms.Button();
             this.monster = new System.Windows.Forms.Button();
+            this.hp_label = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,20 +90,10 @@
             this.panel1.Size = new System.Drawing.Size(272, 528);
             this.panel1.TabIndex = 6;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(296, 288);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Catch";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // catch_id2
             // 
             this.catch_id2.BackColor = System.Drawing.Color.Transparent;
-            this.catch_id2.BackgroundImage = global::Monster_Hunt.Properties.Resources.angrybirds_3_icon;
+            this.catch_id2.BackgroundImage = global::Monster_Hunt.Properties.Resources.angrybirds;
             this.catch_id2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.catch_id2.FlatAppearance.BorderSize = 0;
             this.catch_id2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -119,7 +110,7 @@
             // catch_id1
             // 
             this.catch_id1.BackColor = System.Drawing.Color.Transparent;
-            this.catch_id1.BackgroundImage = global::Monster_Hunt.Properties.Resources.pikachu_icon;
+            this.catch_id1.BackgroundImage = global::Monster_Hunt.Properties.Resources.pikachu;
             this.catch_id1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.catch_id1.FlatAppearance.BorderSize = 0;
             this.catch_id1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -133,10 +124,21 @@
             this.catch_id1.UseVisualStyleBackColor = false;
             this.catch_id1.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(296, 296);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 32);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Catch Random";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // upg_sword
             // 
             this.upg_sword.BackColor = System.Drawing.Color.Transparent;
-            this.upg_sword.BackgroundImage = global::Monster_Hunt.Properties.Resources._1460826;
+            this.upg_sword.BackgroundImage = global::Monster_Hunt.Properties.Resources.sword;
             this.upg_sword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.upg_sword.FlatAppearance.BorderSize = 0;
             this.upg_sword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -152,7 +154,7 @@
             // monster
             // 
             this.monster.BackColor = System.Drawing.Color.Transparent;
-            this.monster.BackgroundImage = global::Monster_Hunt.Properties.Resources._2437349_pikachu;
+            this.monster.BackgroundImage = global::Monster_Hunt.Properties.Resources.pikachucc;
             this.monster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.monster.FlatAppearance.BorderSize = 0;
             this.monster.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -166,11 +168,24 @@
             this.monster.UseVisualStyleBackColor = false;
             this.monster.Click += new System.EventHandler(this.monster_Click);
             // 
+            // hp_label
+            // 
+            this.hp_label.AutoSize = true;
+            this.hp_label.BackColor = System.Drawing.Color.Transparent;
+            this.hp_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.hp_label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hp_label.Location = new System.Drawing.Point(512, 288);
+            this.hp_label.Name = "hp_label";
+            this.hp_label.Size = new System.Drawing.Size(47, 15);
+            this.hp_label.TabIndex = 8;
+            this.hp_label.Text = "20 / 20 ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1453, 533);
+            this.Controls.Add(this.hp_label);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sw_cost);
@@ -200,6 +215,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button catch_id1;
         private System.Windows.Forms.Button catch_id2;
+        private System.Windows.Forms.Label hp_label;
     }
 }
 

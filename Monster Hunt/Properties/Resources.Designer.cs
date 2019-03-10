@@ -63,9 +63,9 @@ namespace Monster_Hunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1460826 {
+        internal static System.Drawing.Bitmap angrybirds {
             get {
-                object obj = ResourceManager.GetObject("1460826", resourceCulture);
+                object obj = ResourceManager.GetObject("angrybirds", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Monster_Hunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _2437349_pikachu {
+        internal static System.Drawing.Bitmap materialangry {
             get {
-                object obj = ResourceManager.GetObject("2437349-pikachu", resourceCulture);
+                object obj = ResourceManager.GetObject("materialangry", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Monster_Hunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap angrybirds_3_icon {
+        internal static System.Drawing.Bitmap pikachu {
             get {
-                object obj = ResourceManager.GetObject("angrybirds-3-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("pikachu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,19 @@ namespace Monster_Hunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pikachu_icon {
+        internal static System.Drawing.Bitmap pikachucc {
             get {
-                object obj = ResourceManager.GetObject("pikachu-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("pikachucc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sword {
+            get {
+                object obj = ResourceManager.GetObject("sword", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -118,16 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pikachu-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pikachu-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1460826" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="sword" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1460826.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="2437349-pikachu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="pikachucc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2437349-pikachu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="angrybirds-3-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="angrybirds" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\angrybirds-3-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="materialangry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\materialangry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pikachu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pikachu-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

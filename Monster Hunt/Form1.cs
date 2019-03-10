@@ -15,10 +15,15 @@ namespace Monster_Hunt
         public Form1()
         {
             InitializeComponent();
+            hp.Maximum = 20;
+            hp.Value = 20;
         }
 
-        int x; //Balance
-        int y = 1; //Income
+        double x; //Balance
+        double y = 1; //Income
+        double dmgval = 1;
+        double hpbar = 20;
+        double hpbarmax = 20;
 
         //Monsters:
         bool id1 = false; //Pikachu
@@ -28,6 +33,20 @@ namespace Monster_Hunt
         {
             x = x + y;
             gold.Text = "Gold: " + x;
+
+            hpbar = hpbar - dmgval;
+            if (hpbar == 0)
+            {
+                monster.BackgroundImage = Properties.Resources.materialangry;
+                hpbarmax = hpbarmax * 1.3;
+                hpbar = hpbarmax;
+                
+            }
+            hp.Maximum = (int)hpbarmax;
+            hp.Value = (int)hpbar;
+            hp_label.Text = hpbar + " / " + hpbarmax + " ";
+
+
 
 
 
@@ -49,8 +68,7 @@ namespace Monster_Hunt
 
                     while (!id1 || !id2)
                     {
-                        Random pokeGenerator = new Random();
-                        int catchid = pokeGenerator.Next(1, 3);
+                        int catchid = slumpGenerator.Next(1, 3);
 
                         if (catchid == 1)
                         {

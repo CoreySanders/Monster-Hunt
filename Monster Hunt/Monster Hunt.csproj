@@ -92,5 +92,8 @@
   <ItemGroup>
     <None Include="Resources\angrybirds-3-icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\materialangry.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
