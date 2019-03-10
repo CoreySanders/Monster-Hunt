@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -174,6 +175,54 @@ namespace Monster_Hunt
                 MessageBox.Show("Congratulations for reaching level 20!" + "\n" + "\n" + "Your gold income has been increased by +1", "We hope you enjoy your stay");
 
             }
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+
+            TextWriter tw = new StreamWriter("settings.txt");
+            tw.WriteLine("//Values you are allowed to change");
+            tw.WriteLine("//Basic stuff");
+            tw.WriteLine("x=" + x + " //Balance");
+            tw.WriteLine("y=" + y + " //Income per click(gpc)");
+            tw.WriteLine("");
+            tw.WriteLine("//HP");
+            tw.WriteLine("dmgval=" + dmgval + " //Damage");
+            tw.WriteLine("");
+            tw.WriteLine("//Upgrades");
+            tw.WriteLine("sword_dmg=" + sword_dmg + " //Damage dealt by sword upgrades");
+            tw.WriteLine("");
+            tw.WriteLine("");
+            tw.WriteLine("//Values you aren't allowed to change. (Warning! This might crash your game!)");
+            tw.WriteLine("//Basic stuff");
+            tw.WriteLine("lvl=" + lvl + " //Level");
+            tw.WriteLine("");
+            tw.WriteLine("//HP");
+            tw.WriteLine("hpbar=" + hpbar);
+            tw.WriteLine("hpbarmax=" + hpbarmax);
+            tw.WriteLine("hpbarmultiply=" + hpbarmultiply);
+            tw.WriteLine("");
+            tw.WriteLine("//Upgrades");
+            tw.WriteLine("sword_amount=" + sword_amount);
+            tw.WriteLine("sword_cost=" + sword_cost);
+            tw.WriteLine("sword_income=" + sword_income);
+            tw.WriteLine("");
+            tw.WriteLine("catch_cost=" + catch_cost);
+            tw.WriteLine("//Monsters");
+            tw.WriteLine("id1=" + id1);
+            tw.WriteLine("");
+            tw.WriteLine("id2=" + id2);
+
+
+            tw.Close();
+            MessageBox.Show("Game saved!", "Saved");
+            
+        }
+
+        private void load_Click(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

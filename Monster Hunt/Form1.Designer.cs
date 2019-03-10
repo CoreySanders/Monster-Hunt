@@ -42,6 +42,8 @@
             this.hp_label = new System.Windows.Forms.Label();
             this.level = new System.Windows.Forms.Label();
             this.sw_am = new System.Windows.Forms.Label();
+            this.save = new System.Windows.Forms.Button();
+            this.load = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -203,11 +205,35 @@
             this.sw_am.TabIndex = 10;
             this.sw_am.Text = "0";
             // 
+            // save
+            // 
+            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save.Location = new System.Drawing.Point(8, 480);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(96, 24);
+            this.save.TabIndex = 11;
+            this.save.Text = "Save";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
+            // load
+            // 
+            this.load.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.load.Location = new System.Drawing.Point(8, 504);
+            this.load.Name = "load";
+            this.load.Size = new System.Drawing.Size(96, 24);
+            this.load.TabIndex = 12;
+            this.load.Text = "Load";
+            this.load.UseVisualStyleBackColor = true;
+            this.load.Click += new System.EventHandler(this.load_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1453, 533);
+            this.Controls.Add(this.load);
+            this.Controls.Add(this.save);
             this.Controls.Add(this.sw_am);
             this.Controls.Add(this.level);
             this.Controls.Add(this.hp_label);
@@ -243,6 +269,8 @@
         private System.Windows.Forms.Label hp_label;
         private System.Windows.Forms.Label level;
         private System.Windows.Forms.Label sw_am;
+        private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Button load;
     }
 }
 
