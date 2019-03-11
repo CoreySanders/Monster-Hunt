@@ -194,7 +194,6 @@
             this.level.Size = new System.Drawing.Size(63, 20);
             this.level.TabIndex = 9;
             this.level.Text = "Level: 1";
-            this.level.TextChanged += new System.EventHandler(this.level_TextChanged);
             // 
             // sw_am
             // 

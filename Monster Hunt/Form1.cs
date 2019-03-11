@@ -58,21 +58,17 @@ namespace Monster_Hunt
                 hpbar = hpbarmax;
                 lvl = lvl + 1;
                 level.Text = "Level: " + lvl;
-                
+                if (lvl % 20 == 0)
+                {
+                    income = income + 1;
+                    MessageBox.Show("Congratulations for reaching level 20!" + "\n" + "\n" + "Your gold income has been increased by +1", "We hope you enjoy your stay");
+                }
             }
-            if (lvl >= 20)
-            {
-                hpbarmultiply = 1.1;
-
-            }
+            /*This happens for every 20 levels. */
 
             hp.Maximum = hpbarmax;
             hp.Value = hpbar;
             hp_label.Text = hpbar + " / " + hpbarmax + " ";
-
-
-
-
 
         }
 
@@ -160,15 +156,6 @@ namespace Monster_Hunt
             }
         }
 
-        private void level_TextChanged(object sender, EventArgs e)
-        {
-            if (lvl % 20 == 0)
-            {
-                income = income + 1;
-                MessageBox.Show("Congratulations for reaching level 20!" + "\n" + "\n" + "Your gold income has been increased by +1", "We hope you enjoy your stay");
-            }
-        }
-
         private void save_Click(object sender, EventArgs e)
         {
 
@@ -213,7 +200,7 @@ namespace Monster_Hunt
 
         private void load_Click(object sender, EventArgs e)
         {
-            Regex regex = new Regex (@"(\d+[,\.]?)");
+            Regex regex = new Regex (@"(\d+[,\.]?(\d)?)");
             TextReader tr = new StreamReader("settings.txt");
             tr.ReadLine();
             tr.ReadLine();
@@ -369,9 +356,6 @@ namespace Monster_Hunt
             hp.Maximum = hpbarmax;
             hp.Value = hpbar;
             hp_label.Text = hpbar + " / " + hpbarmax + " ";
-
-
-
         }
     }
 }
