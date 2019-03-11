@@ -222,14 +222,175 @@ namespace Monster_Hunt
 
         private void load_Click(object sender, EventArgs e)
         {
+            Regex regex = new Regex (@"(\d+[,\.]?)");
             TextReader tr = new StreamReader("settings.txt");
-            string pattern = @"(\d+[,\.]?)";
-            Regex rgx = new Regex(pattern);
             tr.ReadLine();
             tr.ReadLine();
-            string input = tr.ReadLine();
-           // string aa2 = Regex.Split(input, rgx);
-           // gold.Text = aa2;
+            string input1 = tr.ReadLine();
+            string input2 = tr.ReadLine();
+            tr.ReadLine();
+            tr.ReadLine();
+            string input3 = tr.ReadLine();
+            tr.ReadLine();
+            tr.ReadLine();
+            string input4 = tr.ReadLine();
+            tr.ReadLine();
+            tr.ReadLine();
+            tr.ReadLine();
+            tr.ReadLine();
+            string input5 = tr.ReadLine();
+            tr.ReadLine();
+            tr.ReadLine();
+            string input6 = tr.ReadLine();
+            string input7 = tr.ReadLine();
+            string input8 = tr.ReadLine();
+            tr.ReadLine();
+            tr.ReadLine();
+            string input9 = tr.ReadLine();
+            string input10 = tr.ReadLine();
+            string input11 = tr.ReadLine();
+            tr.ReadLine();
+            string input12 = tr.ReadLine();
+            tr.ReadLine();
+            string input13 = tr.ReadLine();
+            tr.ReadLine();
+            string input14 = tr.ReadLine();
+
+
+
+
+
+            Match match1 = regex.Match(input1);
+            Match match2 = regex.Match(input2);
+
+            Match match3 = regex.Match(input3);
+
+            Match match4 = regex.Match(input4);
+
+            Match match5 = regex.Match(input5);
+
+            Match match6 = regex.Match(input6);
+            Match match7 = regex.Match(input7);
+            Match match8 = regex.Match(input8);
+
+            Match match9 = regex.Match(input9);
+            Match match10 = regex.Match(input10);
+            Match match11 = regex.Match(input11);
+
+            Match match12 = regex.Match(input12);
+
+            Match match13 = regex.Match(input13);
+            Match match14 = regex.Match(input14);
+
+            if (match1.Success)
+            {
+                string mg1 = match1.Groups[1].Value;
+                x = Convert.ToInt32(mg1);
+            }
+            if (match2.Success)
+            {
+                string mg2 = match2.Groups[1].Value;
+                y = Convert.ToInt32(mg2);
+            }
+
+
+            if (match3.Success)
+            {
+                string mg3 = match3.Groups[1].Value;
+                dmgval = Convert.ToInt32(mg3);
+            }
+
+
+            if (match4.Success)
+            {
+                string mg4 = match4.Groups[1].Value;
+                sword_dmg = Convert.ToInt32(mg4);
+            }
+
+
+            if (match5.Success)
+            {
+                string mg5 = match5.Groups[1].Value;
+                lvl = Convert.ToInt32(mg5);
+            }
+
+
+            if (match6.Success)
+            {
+                string mg6 = match6.Groups[1].Value;
+                hpbar = Convert.ToInt32(mg6);
+            }
+            if (match7.Success)
+            {
+                string mg7 = match7.Groups[1].Value;
+                hpbarmax = Convert.ToInt32(mg7);
+            }
+            if (match8.Success)
+            {
+                string mg8 = match8.Groups[1].Value;
+                hpbarmultiply = Convert.ToDouble(mg8);
+            }
+
+
+            if (match9.Success)
+            {
+                string mg9 = match9.Groups[1].Value;
+                sword_amount = Convert.ToInt32(mg9);
+            }
+            if (match10.Success)
+            {
+                string mg10 = match10.Groups[1].Value;
+                sword_cost = Convert.ToInt32(mg10);
+            }
+            if (match11.Success)
+            {
+                string mg11 = match11.Groups[1].Value;
+                sword_income = Convert.ToInt32(mg11);
+            }
+
+
+            if (match12.Success)
+            {
+                string mg12 = match12.Groups[1].Value;
+                catch_cost = Convert.ToInt32(mg12);
+            }
+
+
+            /*
+            if (match13.Success)
+            {
+                string mg13 = match13.Groups[1].Value;
+            }
+            if (match14.Success)
+            {
+                string mg14 = match14.Groups[1].Value;
+            }
+            */
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+            tr.Close();
+            MessageBox.Show("Game loaded!", "Loaded");
+            dmg.Text = "Dmg: " + dmgval;
+            gold.Text = "Gold: " + x;
+            sw_cost.Text = sword_cost + " Gold";
+            sw_am.Text = sword_amount.ToString();
+            level.Text = "Level: " + lvl;
+            hp.Maximum = hpbarmax;
+            hp.Value = hpbar;
+            hp_label.Text = hpbar + " / " + hpbarmax + " ";
+
 
 
         }
