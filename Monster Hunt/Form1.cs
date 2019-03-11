@@ -170,7 +170,7 @@ namespace Monster_Hunt
 
         private void level_TextChanged(object sender, EventArgs e)
         {
-            if (lvl == 20)
+            if (lvl % 20 == 0)
             {
                 y = y + 1;
                 MessageBox.Show("Congratulations for reaching level 20!" + "\n" + "\n" + "Your gold income has been increased by +1", "We hope you enjoy your stay");
