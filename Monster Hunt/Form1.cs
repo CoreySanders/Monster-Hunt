@@ -25,8 +25,8 @@ namespace Monster_Hunt
 
         //Basic stuff
         int lvl = 1; //Level
-        int x; //Balance
-        int y = 1; //Income
+        int balance; //Balance
+        int income = 1; //Income
 
         //HP
         int hpbar = 20; //How much HP is left
@@ -47,8 +47,8 @@ namespace Monster_Hunt
 
         private void monster_Click(object sender, EventArgs e)
         {
-            x = x + y;
-            gold.Text = "Gold: " + x;
+            balance += income;
+            gold.Text = "Gold: " + balance;
 
             hpbar = hpbar - dmgval;
             if (hpbar <= 0)
@@ -78,17 +78,15 @@ namespace Monster_Hunt
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            if (id1 == true && id2 == true)
-            {
+            if (id1 && id2)
                 MessageBox.Show("You have already obtained every monster!", "Sorry");
-            }
+
             else
             {
-                if (x >= catch_cost)
+                if (balance >= catch_cost)
                 {
-                    x = x - catch_cost; 
-                    gold.Text = "Gold: " + x;
+                    balance = balance - catch_cost; 
+                    gold.Text = "Gold: " + balance;
 
                     Random slumpGenerator = new Random();
                     int catchchance = slumpGenerator.Next(1, 100);
@@ -110,24 +108,18 @@ namespace Monster_Hunt
                                     break;
                                 }
                             }
-                            else
+                            if (catchid == 2)
                             {
-                                if (catchid == 2)
+
+                                if (!id2)
                                 {
-
-                                    if (!id2)
-                                    {
-                                        id2 = true;
-                                        catch_id2.Visible = true;
-                                        break;
-                                    }
-
-
+                                    id2 = true;
+                                    catch_id2.Visible = true;
+                                    break;
                                 }
 
-                            }
-                 
 
+                            }
                         }
 
                         MessageBox.Show("Congratulations!", "Achievement");
@@ -148,16 +140,16 @@ namespace Monster_Hunt
 
         private void upg_sword_Click(object sender, EventArgs e)
         {
-            if (x >= sword_cost)
+            if (balance >= sword_cost)
             {
-                x = x - sword_cost;
+                balance = balance - sword_cost;
                 sword_amount = sword_amount + 1;
                 dmgval = dmgval +  sword_dmg;
 
 
 
                 dmg.Text = "Dmg: " + dmgval;
-                gold.Text = "Gold: " + x; 
+                gold.Text = "Gold: " + balance; 
                 sword_cost = (int)(sword_cost * 1.3);
                 sw_cost.Text = sword_cost + " Gold";
                 sw_am.Text = sword_amount.ToString();
@@ -172,9 +164,8 @@ namespace Monster_Hunt
         {
             if (lvl % 20 == 0)
             {
-                y = y + 1;
+                income = income + 1;
                 MessageBox.Show("Congratulations for reaching level 20!" + "\n" + "\n" + "Your gold income has been increased by +1", "We hope you enjoy your stay");
-
             }
         }
 
@@ -184,8 +175,8 @@ namespace Monster_Hunt
             TextWriter tw = new StreamWriter("settings.txt");
             tw.WriteLine("//Values you are allowed to change");
             tw.WriteLine("//Basic stuff");
-            tw.WriteLine("x=" + x + " //Balance");
-            tw.WriteLine("y=" + y + " //Income per click(gpc)");
+            tw.WriteLine("x=" + balance + " //Balance");
+            tw.WriteLine("y=" + income + " //Income per click(gpc)");
             tw.WriteLine("");
             tw.WriteLine("//HP");
             tw.WriteLine("dmgval=" + dmgval + " //Damage");
@@ -210,9 +201,9 @@ namespace Monster_Hunt
             tw.WriteLine("");
             tw.WriteLine("catch_cost=" + catch_cost);
             tw.WriteLine("//Monsters");
-            tw.WriteLine("id1=" + id1);
+            tw.WriteLine("idOne=" + (id1 ? 1 : 0));
             tw.WriteLine("");
-            tw.WriteLine("id2=" + id2);
+            tw.WriteLine("idTwo=" + (id2 ? 1 : 0));
 
 
             tw.Close();
@@ -285,12 +276,12 @@ namespace Monster_Hunt
             if (match1.Success)
             {
                 string mg1 = match1.Groups[1].Value;
-                x = Convert.ToInt32(mg1);
+                balance = Convert.ToInt32(mg1);
             }
             if (match2.Success)
             {
                 string mg2 = match2.Groups[1].Value;
-                y = Convert.ToInt32(mg2);
+                income = Convert.ToInt32(mg2);
             }
 
 
@@ -355,35 +346,23 @@ namespace Monster_Hunt
                 catch_cost = Convert.ToInt32(mg12);
             }
 
-
-            /*
+            #region Caught Monsters
             if (match13.Success)
             {
-                string mg13 = match13.Groups[1].Value;
+                catch_id1.Visible = match13.Groups[1].Value == "1";
+                id1 = match13.Groups[1].Value == "1";
             }
-            if (match14.Success)
+            if (match13.Success)
             {
-                string mg14 = match14.Groups[1].Value;
+                catch_id2.Visible = match14.Groups[1].Value == "1";
+                id2 = match14.Groups[1].Value == "1";
             }
-            */
-            
-
-
-
-
-
-
-
-
-
-
-
-
+            #endregion
 
             tr.Close();
             MessageBox.Show("Game loaded!", "Loaded");
             dmg.Text = "Dmg: " + dmgval;
-            gold.Text = "Gold: " + x;
+            gold.Text = "Gold: " + balance;
             sw_cost.Text = sword_cost + " Gold";
             sw_am.Text = sword_amount.ToString();
             level.Text = "Level: " + lvl;
